@@ -1,0 +1,16 @@
+.cursor-pointer i:hover {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.loading {
+    background: url(../icons/loading.gif) no-repeat right center;
+}
+
+.success {
+    background: url(../icons/yes.png) no-repeat right center;
+}
+
+.fail {
+    background: url(../icons/no.png) no-repeat right center;
+}
