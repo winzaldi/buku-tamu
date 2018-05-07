@@ -23,7 +23,7 @@ $(function () {
     var editable_object = null;
     var editable_text = '';
 
-    $(".editable").click(function() {
+    $(".editable").click(function () {
         if (editing) {
             return;
         }
@@ -35,6 +35,16 @@ $(function () {
         $(this).attr("contenteditable", "true");
         $(this).focus();
     });
+
+    $("#btnTambah").click(function () {
+        $("#name").val(null);
+        $("#address").val(null);
+        $("#instansi").val(null);
+        $("#jabatan").val(null);
+        $("#kesan").val(null);
+        $("#pesan").val(null);
+    });
+
 
     $(".editable").blur(function () {
         var column = $(this).data('column');

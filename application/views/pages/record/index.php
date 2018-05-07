@@ -9,8 +9,7 @@
                 <div class="mt-3">
                     <div class="form-row align-items-center">
                         <div class="col-auto">
-<!--                            <button class="btn btn-primary" data-toggle="modal" data-target="#guestModal">Tambah</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#guestModal">Tambah</button>
+                            <button id="btnTambah" type="button" class="btn btn-primary" data-toggle="modal" data-target="#guestModal">Tambah</button>
                         </div>
                     </div>
                 </div>
@@ -20,7 +19,7 @@
         <div class="float-right pb-3">
             <div class="card text-center">
                 <div class="card-header">
-                    <form action="index.php" method="get">
+                    <form action="index.php" method="get" id="form-tamu">
                         <input type="hidden" name="page" value="<?= $this->paging->getPage(); ?>">
 
                         <div class="form-row align-items-center">
@@ -145,46 +144,33 @@
                             <form action="index.php?action=save" id="submit_record" method="POST">
 
                                 <div class="form-group">
-                                    <? if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-                                        <input type="text" class="form-control" name="name" placeholder="Name"
-                                               value="<?= (isset($_POST['name']) ? htmlspecialchars($_POST['name']) : Db::getUserName($_SESSION['email'])); ?>"
-                                               required>
-                                    <? else: ?>
-                                        <input type="text" class="form-control" name="name" placeholder="Nama"
-                                               value="<?= htmlspecialchars($_POST['name']); ?>" required>
-                                    <? endif; ?>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Nama"
+                                               value="<?= htmlspecialchars($_POST['name']); ?>" >
                                 </div>
 
                                 <div class="form-group">
-                                    <? if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) : ?>
-                                        <input type="email" class="form-control" name="email" placeholder="Email"
-                                               value="<?= (isset($_POST['email']) ? htmlspecialchars($_POST['email']) : $_SESSION['email']); ?>"
-                                               required>
-                                    <? else: ?>
-                                        <textarea rows="2" class="form-control" name="address" placeholder="Alamat"
-                                                  required><?= htmlspecialchars($_POST['address']); ?></textarea>
-
-                                    <? endif; ?>
+                                        <textarea rows="2" class="form-control" name="address" id="address" placeholder="Alamat"
+                                                  ><?= htmlspecialchars($_POST['address']); ?></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="instansi" placeholder="Instansi"
+                                    <input type="text" class="form-control" name="instansi" id="instansi" placeholder="Instansi"
                                            value="<?= htmlspecialchars($_POST['instansi']); ?>">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan"
+                                    <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Jabatan"
                                            value="<?= htmlspecialchars($_POST['jabatan']); ?>">
                                 </div>
 
                                 <div class="form-group">
-                        <textarea rows="2" class="form-control" name="kesan" placeholder="Kesan"
-                                  required><?= htmlspecialchars($_POST['kesan']); ?></textarea>
+                        <textarea rows="2" class="form-control" name="kesan"  id="kesan"placeholder="Kesan"
+                                  ><?= htmlspecialchars($_POST['kesan']); ?></textarea>
                                 </div>
 
                                 <div class="form-group">
-                        <textarea rows="2" class="form-control" name="pesan" placeholder="pesan"
-                                  required><?= htmlspecialchars($_POST['pesan']); ?></textarea>
+                        <textarea rows="2" class="form-control" name="pesan" id="pesan"  placeholder="pesan"
+                                  ><?= htmlspecialchars($_POST['pesan']); ?></textarea>
                                 </div>
                                 <!--                    <div class="form-row">-->
                                 <!--                        <div class="form-group col-md-3">-->
